@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body{
+            background-color: rgb(0, 0, 0);
+        }
+        .div_to_flex{
+            display: flex;
+            justify-content: center;
+            margin-top: 200px;
+        }
+        .container{
+            width: 200px;
+        }
+        .logins{
+            display: grid;
+            grid-template-columns: 1fr;
+            row-gap: 10px;
+        }
+        input{
+            height: 30px;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+            padding-left: 10px;
+        }
+        .text{
+            color: white;
+            font-size: 13px;
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+        .buttons{
+            display: flex;
+            flex-direction: row;
+            column-gap: 10px;
+            justify-content: space-between;
+        }
+        button{
+            width: 60px;
+            height: 30px;
+            color: black;
+            font-weight: 700;
+            background-color: lightseagreen;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+        }
+        button:active{
+            transform: scale(0.9);
+        }
+        button:hover{
+            box-shadow: 0 0 10px rgba(204, 201, 201, 0.9);
+            cursor: pointer;
+        }
+        p{
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+        .incorrect{
+            color: red;
+        }
+
+        .choice{
+            color: white;
+        }
+        .draw{
+            color: white;
+        }
+        .computer_won{
+            color: red;
+        }
+        .you_won{
+            color: green;
+        }
+        p{
+            color: white;
+        }
+        .try_again_invisible{
+            visibility: hidden;
+        }
+        .try_again_visible{
+            margin-bottom: 20px;
+            padding-left: 63px;
+            visibility: visible;
+        }
+        .try_again_visible:hover{
+            cursor: pointer;
+            text-decoration: underline;
+            color: rgb(97, 97, 236);
+        }
+
+        .login_invisible{
+            visibility: hidden;
+            
+        }
+        .login_visible{
+            visibility: visible;
+        }
+        .login_visible:hover{
+            box-shadow: 0 0 10px rgba(204, 201, 201, 0.9);
+            cursor: pointer;  
+        }
+    </style>
+</head>
+<body>
+
+    <div class="div_to_flex">
+        <div class="container">
+            <div class="logins">
+                <p id="try_again" onclick="refreshpage()" class="try_again_invisible">Try Again!</p>
+                <input type="text" id="username" placeholder="username">
+                <input type="text" id="password" placeholder="password">
+                <p class="text">Play rock, paper, scissor to login!</p>
+                <div class="buttons">
+                    <button id="rock" onclick="rock()">Rock</button>
+                    <button id="paper" onclick="paper()">Paper</button>
+                    <button id="scissor" onclick="scissor()">Scissor</button>
+                </div>
+                <p id="message" ></p>
+                <p id="status" ></p>
+                <input type="submit" id="login_btn" class="login_invisible" onclick="login()" value="Login" style="font-weight: 700; background-color: lightseagreen;">
+            </div>
+           </div> 
+    </div>
+
+    <script>
+
+        function rock(){
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            const message = document.getElementById("message");
+            const status = document.getElementById("status");
+            const rbutton = document.getElementById("rock");
+            const pbutton = document.getElementById("paper");
+            const sbutton = document.getElementById("scissor");
+            const login_btn = document.getElementById("login_btn");
+            const try_again = document.getElementById("try_again");
+
+                if(username==="bhusan" && password==="bhusan123"){
+
+                    const rnumber=Math.random(); 
+                    if(rnumber>0 && rnumber<0.333333){
+                        message.textContent = "computer:rock you:rock";
+                        message.classList.add("choice");
+                        status.textContent="Draw!";
+                        status.classList.add("draw");
+                        try_again.classList.remove("try_again_invisible");
+                        try_again.classList.add("try_again_visible");
+
+                    } else if(rnumber>=0.333333 && rnumber<0.666666){
+                        message.textContent = "computer:paper you:rock";
+                        message.classList.add("choice");
+                        status.textContent="Computer Won!";
+                        status.classList.add("computer_won");
+                        try_again.classList.remove("try_again_invisible");
+                        try_again.classList.add("try_again_visible");
+                    }else{
+                        message.textContent = "computer:scissor you:rock";
+                        message.classList.add("choice");
+                        status.textContent="You Won!";
+                        status.classList.add("you_won");
+                        login_btn.classList.remove("login_invisible");
+                        login_btn.classList.add("login_visible");
+                    }
+                    rbutton.disabled=true;
+                    pbutton.disabled=true;
+                    sbutton.disabled=true;     
+
+                }else{
+                    message.textContent = "InCorrect credentials!";
+                    message.classList.add("incorrect");
+
+                    rbutton.disabled=false;
+                    pbutton.disabled=false;
+                    sbutton.disabled=false;  
+                }  
+    
+        }
+
+        function paper(){
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            const message = document.getElementById("message");
+            const status = document.getElementById("status");
+            const rbutton = document.getElementById("rock");
+            const pbutton = document.getElementById("paper");
+            const sbutton = document.getElementById("scissor");
+            const login_btn = document.getElementById("login_btn");
+            const try_again = document.getElementById("try_again");
+
+                if(username==="bhusan" && password==="bhusan123"){
+
+                    const rnumber=Math.random();  
+                    if(rnumber>0 && rnumber<0.333333){
+                        message.textContent = "computer:rock you:paper";
+                        message.classList.add("choice");
+                        status.textContent="You Won!";
+                        status.classList.add("you_won");
+                        login_btn.classList.remove("login_invisible");
+                        login_btn.classList.add("login_visible");
+
+                    } else if(rnumber>=0.333333 && rnumber<0.666666){
+                        message.textContent = "computer:paper you:paper";
+                        message.classList.add("choice");
+                        status.textContent="Draw!";
+                        status.classList.add("draw");
+                        try_again.classList.remove("try_again_invisible");
+                        try_again.classList.add("try_again_visible");
+
+                    }else{
+                        message.textContent = "computer:scissor you:paper";
+                        message.classList.add("choice");
+                        status.textContent="Computer Won!";
+                        status.classList.add("computer_won");
+                        try_again.classList.remove("try_again_invisible");
+                        try_again.classList.add("try_again_visible");
+                    }
+                    rbutton.disabled=true;
+                    pbutton.disabled=true;
+                    sbutton.disabled=true; 
+
+                }else{
+                    message.textContent = "InCorrect credentials!";
+                    message.classList.add("incorrect");
+
+                    rbutton.disabled=false;
+                    pbutton.disabled=false;
+                    sbutton.disabled=false;     
+                }
+        }
+
+        function scissor(){
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            const message = document.getElementById("message");
+            const status = document.getElementById("status");
+            const rbutton = document.getElementById("rock");
+            const pbutton = document.getElementById("paper");
+            const sbutton = document.getElementById("scissor");
+            const login_btn = document.getElementById("login_btn");
+            const try_again = document.getElementById("try_again");
+                if(username==="bhusan" && password==="bhusan123"){
+
+                    const rnumber=Math.random();  
+                    if(rnumber>0 && rnumber<0.333333){
+                        message.textContent = "computer:rock you:scissor";
+                        message.classList.add("choice");
+                        status.textContent="Computer Won!";
+                        status.classList.add("computer_won");
+                        try_again.classList.remove("try_again_invisible");
+                        try_again.classList.add("try_again_visible");
+
+                    } else if(rnumber>=0.333333 && rnumber<0.666666){
+                        message.textContent = "computer:paper you:scissor";
+                        message.classList.add("choice");
+                        status.textContent="You Won!";
+                        status.classList.add("you_won");
+                        login_btn.classList.remove("login_invisible");
+                        login_btn.classList.add("login_visible");
+
+                    }else{
+                        message.textContent = "computer:scissor you:scissor";
+                        message.classList.add("choice");
+                        status.textContent="Draw!";
+                        status.classList.add("draw");
+                        try_again.classList.remove("try_again_invisible");
+                        try_again.classList.add("try_again_visible");
+                    }
+                    rbutton.disabled=true;
+                    pbutton.disabled=true;
+                    sbutton.disabled=true;
+
+                 }else{
+                    message.textContent = "InCorrect credentials!";
+                    message.classList.add("incorrect");
+
+                    rbutton.disabled=false;
+                    pbutton.disabled=false;
+                    sbutton.disabled=false;
+                }
+
+        }
+
+        function refreshpage(){
+            location.reload();
+        }
+
+        function login(){
+            window.location.replace("https://www.facebook.com/profile.php?id=100009028581010");
+        }
+
+    </script>
+</body>
+</html>
