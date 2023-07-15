@@ -108,7 +108,7 @@
         }
     </style>
 </head>
-<body onload="loadText()">
+<body>
 
     <div class="div_to_flex">
         <div class="container">
@@ -170,10 +170,17 @@
                     }
                     rbutton.disabled=true;
                     pbutton.disabled=true;
-                    sbutton.disabled=true;     
+                    sbutton.disabled=true;
+                
+                }else if (username==="" && password===""){ 
+                    message.textContent = "Fill all fields!";
+                    message.classList.add("incorrect");
 
+                    rbutton.disabled=false;
+                    pbutton.disabled=false;
+                    sbutton.disabled=false; 
                 }else{
-                    message.textContent = "InCorrect credentials!";
+                    message.textContent = "Incorrect credentials!";
                     message.classList.add("incorrect");
 
                     rbutton.disabled=false;
@@ -225,14 +232,21 @@
                     pbutton.disabled=true;
                     sbutton.disabled=true; 
 
+                }else if (username==="" && password===""){ 
+                    message.textContent = "Fill all fields!";
+                    message.classList.add("incorrect");
+                    
+                    rbutton.disabled=false;
+                    pbutton.disabled=false;
+                    sbutton.disabled=false; 
                 }else{
-                    message.textContent = "InCorrect credentials!";
+                    message.textContent = "Incorrect credentials!";
                     message.classList.add("incorrect");
 
                     rbutton.disabled=false;
                     pbutton.disabled=false;
-                    sbutton.disabled=false;     
-                }
+                    sbutton.disabled=false;  
+                } 
         }
 
         function scissor(){
@@ -276,34 +290,26 @@
                     pbutton.disabled=true;
                     sbutton.disabled=true;
 
-                 }else{
-                    message.textContent = "InCorrect credentials!";
+                }else if (username==="" && password===""){ 
+                    message.textContent = "Fill all fields!";
+                    message.classList.add("incorrect");
+                    
+                    rbutton.disabled=false;
+                    pbutton.disabled=false;
+                    sbutton.disabled=false; 
+                }else{
+                    message.textContent = "Incorrect credentials!";
                     message.classList.add("incorrect");
 
                     rbutton.disabled=false;
                     pbutton.disabled=false;
-                    sbutton.disabled=false;
-                }
+                    sbutton.disabled=false;  
+                } 
 
         }
 
-
-        function saveText() {
-            var usernameInput = document.getElementById("username");
-            var passwordInput = document.getElementById("password");           
-            localStorage.setItem("username", usernameInput.value);
-            localStorage.setItem("password", passwordInput.value);
-        }
-
-        function loadText() {
-            var usernameInput = document.getElementById("username");
-            var passwordInput = document.getElementById("password");            
-            usernameInput.value = localStorage.getItem("username") || "";
-            passwordInput.value = localStorage.getItem("password") || "";
-        }
 
         function refreshpage(){
-            saveText();
             location.reload();
         }
 
