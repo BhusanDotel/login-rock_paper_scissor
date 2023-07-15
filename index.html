@@ -6,10 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
     <style>
+        body{
+            background-color: rgb(201, 200, 200);
+        }
         .div_to_flex{
             display: flex;
             justify-content: center;
             margin-top: 150px;
+        }
+        .div_to_border{
+            display: inline-block;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+            border-radius: 30px;
+            padding-left: 30px;
+            padding-right: 30px;
+            padding-bottom: 20px;
+            padding-top: 20px;
         }
         .container{
             width: 200px;
@@ -79,6 +92,7 @@
         }
         .try_again_invisible{
             visibility: hidden;
+            padding-left: 60px;
         }
         .try_again_visible{
             margin-bottom: 20px;
@@ -100,25 +114,26 @@
     </style>
 </head>
 <body>
-
-    <div class="div_to_flex">
-        <div class="container">
-            <div class="logins">
-                <p style="color:black;" id="try_again" onclick="refreshpage()" class="try_again_invisible">Try Again!</p>
-                <input type="text" id="username" placeholder="username">
-                <input type="text" id="password" placeholder="password">
-                <p style="color:black;" class="text">Play rock, paper, scissor to login!</p>
-                <div class="buttons">
-                    <button id="rock" onclick="rock()">Rock</button>
-                    <button id="paper" onclick="paper()">Paper</button>
-                    <button id="scissor" onclick="scissor()">Scissor</button>
-                </div>
-                <p id="message" style="color:black;"></p>
-                <p id="status" ></p>
-                <input type="submit" id="login_btn" class="login_invisible" onclick="login()" value="Login" style="font-weight: 700; background-color: lightseagreen;">
+        <div class="div_to_flex">
+            <div class="div_to_border">
+                <div class="container">
+                    <div class="logins">
+                        <p style="color:black;" id="try_again" onclick="refreshpage()" class="try_again_invisible">Try Again!</p>
+                        <input type="text" id="username" placeholder="username">
+                        <input type="text" id="password" placeholder="password">
+                        <p style="color:black;" class="text">Play rock, paper, scissor to login!</p>
+                        <div class="buttons">
+                            <button id="rock" onclick="rock()">Rock</button>
+                            <button id="paper" onclick="paper()">Paper</button>
+                            <button id="scissor" onclick="scissor()">Scissor</button>
+                        </div>
+                        <p id="message"></p>
+                        <p id="status"></p>
+                        <input type="submit" id="login_btn" class="login_invisible" onclick="login()" value="Login" style="font-weight: 700; background-color: lightseagreen;">
+                    </div>
+                   </div> 
             </div>
-           </div> 
-    </div>
+        </div>
 
     <script>
 
