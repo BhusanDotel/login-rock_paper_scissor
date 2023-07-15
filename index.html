@@ -108,7 +108,7 @@
         }
     </style>
 </head>
-<body>
+<body onload="loadText()">
 
     <div class="div_to_flex">
         <div class="container">
@@ -287,7 +287,23 @@
 
         }
 
+
+        function saveText() {
+            var usernameInput = document.getElementById("username");
+            var passwordInput = document.getElementById("password");           
+            localStorage.setItem("username", usernameInput.value);
+            localStorage.setItem("password", passwordInput.value);
+        }
+
+        function loadText() {
+            var usernameInput = document.getElementById("username");
+            var passwordInput = document.getElementById("password");            
+            usernameInput.value = localStorage.getItem("username") || "";
+            passwordInput.value = localStorage.getItem("password") || "";
+        }
+
         function refreshpage(){
+            saveText();
             location.reload();
         }
 
