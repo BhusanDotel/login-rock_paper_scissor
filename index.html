@@ -89,11 +89,6 @@
             padding-left: 63px;
             visibility: visible;
         }
-        .try_again_visible:hover{
-            cursor: pointer;
-            text-decoration: underline;
-            color: rgb(97, 97, 236);
-        }
 
         .login_invisible{
             visibility: hidden;
@@ -150,6 +145,8 @@
                         message.classList.add("choice");
                         status.textContent="Draw!";
                         status.classList.add("draw");
+                        status.classList.remove("computer_won");
+                        status.classList.remove("you_won");
                         try_again.classList.remove("try_again_invisible");
                         try_again.classList.add("try_again_visible");
 
@@ -158,6 +155,8 @@
                         message.classList.add("choice");
                         status.textContent="Computer Won!";
                         status.classList.add("computer_won");
+                        status.classList.remove("draw");
+                        status.classList.remove("you_won");
                         try_again.classList.remove("try_again_invisible");
                         try_again.classList.add("try_again_visible");
                     }else{
@@ -165,12 +164,15 @@
                         message.classList.add("choice");
                         status.textContent="You Won!";
                         status.classList.add("you_won");
+                        status.classList.remove("draw");
+                        status.classList.remove("computer_won");
                         login_btn.classList.remove("login_invisible");
                         login_btn.classList.add("login_visible");
+
+                        rbutton.disabled=true;
+                        pbutton.disabled=true;
+                        sbutton.disabled=true;
                     }
-                    rbutton.disabled=true;
-                    pbutton.disabled=true;
-                    sbutton.disabled=true;
                 
                 }else if (username==="" && password===""){ 
                     message.textContent = "Fill all fields!";
@@ -209,14 +211,22 @@
                         message.classList.add("choice");
                         status.textContent="You Won!";
                         status.classList.add("you_won");
+                        status.classList.remove("draw");
+                        status.classList.remove("computer_won");
                         login_btn.classList.remove("login_invisible");
                         login_btn.classList.add("login_visible");
+
+                        rbutton.disabled=true;
+                        pbutton.disabled=true;
+                        sbutton.disabled=true;
 
                     } else if(rnumber>=0.333333 && rnumber<0.666666){
                         message.textContent = "computer:paper you:paper";
                         message.classList.add("choice");
                         status.textContent="Draw!";
                         status.classList.add("draw");
+                        status.classList.remove("you_won");
+                        status.classList.remove("computer_won");
                         try_again.classList.remove("try_again_invisible");
                         try_again.classList.add("try_again_visible");
 
@@ -225,12 +235,11 @@
                         message.classList.add("choice");
                         status.textContent="Computer Won!";
                         status.classList.add("computer_won");
+                        status.classList.remove("draw");
+                        status.classList.remove("you_won");
                         try_again.classList.remove("try_again_invisible");
                         try_again.classList.add("try_again_visible");
                     }
-                    rbutton.disabled=true;
-                    pbutton.disabled=true;
-                    sbutton.disabled=true; 
 
                 }else if (username==="" && password===""){ 
                     message.textContent = "Fill all fields!";
@@ -267,6 +276,8 @@
                         message.classList.add("choice");
                         status.textContent="Computer Won!";
                         status.classList.add("computer_won");
+                        status.classList.remove("draw");
+                        status.classList.remove("you_won");
                         try_again.classList.remove("try_again_invisible");
                         try_again.classList.add("try_again_visible");
 
@@ -275,20 +286,25 @@
                         message.classList.add("choice");
                         status.textContent="You Won!";
                         status.classList.add("you_won");
+                        status.classList.remove("draw");
+                        status.classList.remove("computer_won");
                         login_btn.classList.remove("login_invisible");
                         login_btn.classList.add("login_visible");
+
+                        rbutton.disabled=true;
+                        pbutton.disabled=true;
+                        sbutton.disabled=true;
 
                     }else{
                         message.textContent = "computer:scissor you:scissor";
                         message.classList.add("choice");
                         status.textContent="Draw!";
                         status.classList.add("draw");
+                        status.classList.remove("computer_won");
+                        status.classList.remove("you_won");
                         try_again.classList.remove("try_again_invisible");
                         try_again.classList.add("try_again_visible");
                     }
-                    rbutton.disabled=true;
-                    pbutton.disabled=true;
-                    sbutton.disabled=true;
 
                 }else if (username==="" && password===""){ 
                     message.textContent = "Fill all fields!";
@@ -306,11 +322,6 @@
                     sbutton.disabled=false;  
                 } 
 
-        }
-
-
-        function refreshpage(){
-            location.reload();
         }
 
         function login(){
